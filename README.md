@@ -1,4 +1,3 @@
-# tomsk-archivizer
 # 🌍 Schumannlive Tomsk archivizer 🌍
 
 Little app to keep a clean archive of Tomsk graphs - both whole graphs as well as cut out days, each day
