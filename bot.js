@@ -13,7 +13,7 @@ today = dd + '.' + mm + '.' + yyyy;
 var schedule = require('node-schedule');
 
 var rulesDownload = new schedule.RecurrenceRule();
-rulesDownload.dayOfWeek = [0,1,2,3,4,5,6,7];
+rulesDownload.dayOfWeek = [0,1,2,3,4,5,6];
 rulesDownload.hour = [7];
 rulesDownload.minute = [0];
 rulesDownload.second = [0];
@@ -24,7 +24,7 @@ schedule.scheduleJob(rulesDownload, function(){
 });
 
 var rulesSpawn = new schedule.RecurrenceRule();
-rulesSpawn.dayOfWeek = [0,1,2,3,4,5,6,7];
+rulesSpawn.dayOfWeek = [0,1,2,3,4,5,6];
 rulesSpawn.hour = [7];
 rulesSpawn.minute = [5];
 rulesSpawn.second = [0];
@@ -37,7 +37,7 @@ schedule.scheduleJob(rulesSpawn, function(){
 });
 
 var rulesrename = new schedule.RecurrenceRule();
-rulesrename.dayOfWeek = [0,1,2,3,4,5,6,7];
+rulesrename.dayOfWeek = [0,1,2,3,4,5,6];
 rulesrename.hour = [7];
 rulesrename.minute = [10];
 rulesrename.second = [0];
