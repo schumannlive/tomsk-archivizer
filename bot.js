@@ -49,7 +49,7 @@ schedule.scheduleJob(rulesrename, function(){
 
 
 
-//dl picture and call slicer
+//dl picture 
 
 function dlpic(){
 
