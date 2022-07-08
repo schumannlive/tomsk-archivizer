@@ -40,7 +40,7 @@ var rulesrename = new schedule.RecurrenceRule();
 rulesrename.dayOfWeek = [0,1,2,3,4,5,6,7];
 rulesrename.hour = [7];
 rulesrename.minute = [10];
-rulesSpawn.second = [0];
+rulesrename.second = [0];
 
 
 schedule.scheduleJob(rulesrename, function(){
