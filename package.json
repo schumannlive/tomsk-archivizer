@@ -1,0 +1,28 @@
+{
+  "name": "schumannlive_tomsk_archivizer",
+  "version": "1.0.0",
+  "description": "simple app to create your own schumann resonance archive",
+  "main": "bot.js",
+  "dependencies": {
+    "canvas": "^2.9.3",
+    "fs": "^0.0.1-security",
+    "http": "^0.0.1-security",
+    "image-to-slices": "^0.1.3",
+    "imagemagick": "^0.1.3",
+    "node-schedule": "^2.1.0",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "node bot.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "null"
+  },
+  "keywords": [
+    "null"
+  ],
+  "author": "misko schumannlive@protonmail.ch",
+  "license": "ISC"
+}
