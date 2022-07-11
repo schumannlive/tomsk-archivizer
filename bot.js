@@ -2,14 +2,6 @@ const fs = require('fs');
 const http = require('http')
 const { spawn } = require('child_process');
 
-
-var dateOffset = 2 //2 days
-var today = new Date();
-var dd = String(today.getDate() - dateOffset).padStart(2, '');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
-today = dd + '.' + mm + '.' + yyyy;
-
 var schedule = require('node-schedule');
 
 var rulesDownload = new schedule.RecurrenceRule();
@@ -52,6 +44,14 @@ schedule.scheduleJob(rulesrename, function(){
 //dl picture 
 
 function dlpic(){
+    
+    
+    var dateOffset = 2 //2 days
+    var today = new Date();
+    var dd = String(today.getDate() - dateOffset).padStart(2, '');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '.' + mm + '.' + yyyy;
 
     var request = http.get("http://sosrff.tsu.ru/new/shm.jpg",  function(response) {
         if (response.statusCode === 200) {
@@ -60,12 +60,20 @@ function dlpic(){
         }
     });
     console.log('downloaded')
+    
 }
 
 //delete and rename
 
 function rename(){
 
+    var dateOffset = 2 //2 days
+    var today = new Date();
+    var dd = String(today.getDate() - dateOffset).padStart(2, '');
+    var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+    var yyyy = today.getFullYear();
+    today = dd + '.' + mm + '.' + yyyy;
+    
     fs.unlink('./schumann_archive/section-1.jpg', function (err) {
     });
     fs.unlink('./schumann_archive/section-3.jpg', function (err) {
@@ -75,11 +83,9 @@ function rename(){
 
     fs.rename('./schumann_archive/section-2.jpg','./schumann_archive_singlulardays/' + today + '.jpg', function (err) {
         if (err) throw err;
-        console.log('File Renamed.');
     });
 
-
-console.log('renamed')
+    console.log('renamed and deleted')
 
 }
 
