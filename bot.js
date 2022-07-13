@@ -54,10 +54,12 @@ function dlpic(){
     var request = http.get("http://sosrff.tsu.ru/new/shm.jpg",  function(response) {
         if (response.statusCode === 200) {
             var file =  fs.createWriteStream("./schumann_archive/" + today + ".jpg");
-             response.pipe(file)
+             response.pipe(file).on('finish', () => {
+                console.log('downloaded')
+              });
         }
     });
-    console.log('downloaded')
+   
 }
 
 //delete and rename
@@ -79,7 +81,7 @@ function rename(){
 
     fs.rename('./schumann_archive/section-2.jpg','./schumann_archive_singlulardays/' + today + '.jpg', function (err) {
         if (err) throw err;
-        console.log('File Renamed.');
+        console.log('deleted and renamed');
     });
 
 }
