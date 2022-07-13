@@ -1,7 +1,6 @@
 const imageToSlices = require('image-to-slices');
 const dateOffset = 1
 
-
 //slicer
 
 function slicepic(){
@@ -23,7 +22,7 @@ function slicepic(){
         }    
     })
 
-    console.log('sliced')
+    console.log(today + ' sliced')
 
 }
 
