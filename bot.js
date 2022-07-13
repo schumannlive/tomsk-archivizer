@@ -6,7 +6,7 @@ var schedule = require('node-schedule');
 
 var rulesDownload = new schedule.RecurrenceRule();
 rulesDownload.dayOfWeek = [0,1,2,3,4,5,6];
-rulesDownload.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesDownload.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
 rulesDownload.minute = [0];
 rulesDownload.second = [0];
 
@@ -17,7 +17,7 @@ schedule.scheduleJob(rulesDownload, function(){
 
 var rulesSpawn = new schedule.RecurrenceRule();
 rulesSpawn.dayOfWeek = [0,1,2,3,4,5,6];
-rulesSpawn.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesSpawn.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
 rulesSpawn.minute = [1];
 rulesSpawn.second = [0];
 
@@ -30,7 +30,7 @@ schedule.scheduleJob(rulesSpawn, function(){
 
 var rulesrename = new schedule.RecurrenceRule();
 rulesrename.dayOfWeek = [0,1,2,3,4,5,6];
-rulesrename.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesrename.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
 rulesrename.minute = [2];
 rulesSpawn.second = [0];
 
