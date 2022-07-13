@@ -6,8 +6,8 @@ var schedule = require('node-schedule');
 
 var rulesDownload = new schedule.RecurrenceRule();
 rulesDownload.dayOfWeek = [0,1,2,3,4,5,6];
-rulesDownload.hour = [7];
-rulesDownload.minute = [0];
+rulesDownload.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesDownload.minute = [39];
 rulesDownload.second = [0];
 
 
@@ -17,8 +17,8 @@ schedule.scheduleJob(rulesDownload, function(){
 
 var rulesSpawn = new schedule.RecurrenceRule();
 rulesSpawn.dayOfWeek = [0,1,2,3,4,5,6];
-rulesSpawn.hour = [7];
-rulesSpawn.minute = [5];
+rulesSpawn.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesSpawn.minute = [40];
 rulesSpawn.second = [0];
 
 
@@ -30,9 +30,9 @@ schedule.scheduleJob(rulesSpawn, function(){
 
 var rulesrename = new schedule.RecurrenceRule();
 rulesrename.dayOfWeek = [0,1,2,3,4,5,6];
-rulesrename.hour = [7];
-rulesrename.minute = [10];
-rulesrename.second = [0];
+rulesrename.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time!
+rulesrename.minute = [41];
+rulesSpawn.second = [0];
 
 
 schedule.scheduleJob(rulesrename, function(){
@@ -41,12 +41,11 @@ schedule.scheduleJob(rulesrename, function(){
 
 
 
-//dl picture 
+//dl picture and call slicer
 
 function dlpic(){
-    
-    
-    var dateOffset = 2 //2 days
+
+    var dateOffset = 1 //2 days
     var today = new Date();
     var dd = String(today.getDate() - dateOffset).padStart(2, '');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -60,20 +59,19 @@ function dlpic(){
         }
     });
     console.log('downloaded')
-    
 }
 
 //delete and rename
 
 function rename(){
 
-    var dateOffset = 2 //2 days
+    var dateOffset = 1 //2 days
     var today = new Date();
     var dd = String(today.getDate() - dateOffset).padStart(2, '');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
     var yyyy = today.getFullYear();
     today = dd + '.' + mm + '.' + yyyy;
-    
+
     fs.unlink('./schumann_archive/section-1.jpg', function (err) {
     });
     fs.unlink('./schumann_archive/section-3.jpg', function (err) {
@@ -83,9 +81,8 @@ function rename(){
 
     fs.rename('./schumann_archive/section-2.jpg','./schumann_archive_singlulardays/' + today + '.jpg', function (err) {
         if (err) throw err;
+        console.log('File Renamed.');
     });
-
-    console.log('renamed and deleted')
 
 }
 
