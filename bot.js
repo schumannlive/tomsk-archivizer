@@ -3,13 +3,13 @@ const http = require('http')
 const { spawn } = require('child_process');
 const dateOffset = 1
 const schedule = require('node-schedule');
+const hour = [8] //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
 
 var rulesDownload = new schedule.RecurrenceRule();
 rulesDownload.dayOfWeek = [0,1,2,3,4,5,6];
-rulesDownload.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
+rulesDownload.hour = hour
 rulesDownload.minute = [0];
 rulesDownload.second = [0];
-
 
 schedule.scheduleJob(rulesDownload, function(){
     dlpic()
@@ -17,31 +17,35 @@ schedule.scheduleJob(rulesDownload, function(){
 
 var rulesSpawn = new schedule.RecurrenceRule();
 rulesSpawn.dayOfWeek = [0,1,2,3,4,5,6];
-rulesSpawn.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
+rulesSpawn.hour = hour
 rulesSpawn.minute = [1];
 rulesSpawn.second = [0];
 
-
 schedule.scheduleJob(rulesSpawn, function(){
-    spawn(process.argv[0], ['slicer.js'], {
+
+    const ls = spawn(process.argv[0], ['slicer.js'], {
         detached: true
       });
+
+    ls
+
+    ls.stdout.on('data',(data) => {
+        console.log(`${data}`);
+    })
+
 });
 
 var rulesrename = new schedule.RecurrenceRule();
 rulesrename.dayOfWeek = [0,1,2,3,4,5,6];
-rulesrename.hour = [8]; //Make sure to change this value so it matches 8am Central European Summer Time! (0-23)
+rulesrename.hour = hour
 rulesrename.minute = [2];
 rulesSpawn.second = [0];
-
 
 schedule.scheduleJob(rulesrename, function(){
     rename()
 });
 
-
-
-//dl picture and call slicer
+//dl picture
 
 function dlpic(){
 
@@ -55,7 +59,7 @@ function dlpic(){
         if (response.statusCode === 200) {
             var file =  fs.createWriteStream("./schumann_archive/" + today + ".jpg");
              response.pipe(file).on('finish', () => {
-                console.log('downloaded')
+                console.log(today + ' downloaded')
               });
         }
     });
@@ -81,11 +85,7 @@ function rename(){
 
     fs.rename('./schumann_archive/section-2.jpg','./schumann_archive_singlulardays/' + today + '.jpg', function (err) {
         if (err) throw err;
-        console.log('deleted and renamed');
+        else console.log(today + ' deleted and renamed\n\n');
     });
 
 }
-
-
-
-
