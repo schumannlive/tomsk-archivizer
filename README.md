@@ -4,7 +4,7 @@ Little app to keep a clean archive of Tomsk graphs - both whole graphs as well a
 
 ## How to make it work:
 
-1. Open up bot.js in your editor of choice and adjust schedule time as described in the annotations (line 6)
+1. Open up bot.js in your editor of choice and adjust schedule time as described in the annotation (line 6)
 
 2. Run **npm install** in the directory you put your bot in
 
