@@ -1,8 +1,8 @@
 const fs = require('fs');
 const http = require('http')
 const { spawn } = require('child_process');
-
-var schedule = require('node-schedule');
+const dateOffset = 1
+const schedule = require('node-schedule');
 
 var rulesDownload = new schedule.RecurrenceRule();
 rulesDownload.dayOfWeek = [0,1,2,3,4,5,6];
@@ -45,7 +45,6 @@ schedule.scheduleJob(rulesrename, function(){
 
 function dlpic(){
 
-    var dateOffset = 1 
     var today = new Date();
     var dd = String(today.getDate() - dateOffset).padStart(2, '');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
@@ -65,7 +64,6 @@ function dlpic(){
 
 function rename(){
 
-    var dateOffset = 1 
     var today = new Date();
     var dd = String(today.getDate() - dateOffset).padStart(2, '');
     var mm = String(today.getMonth() + 1).padStart(2, '0'); 
