@@ -4,10 +4,12 @@ Little app to keep a clean archive of Tomsk graphs - both whole graphs as well a
 
 ## How to make it work:
 
-1. Run **npm install** in the directory you put your bot in
+1. Open up bot.js in your editor of choice and adjust schedule time as described in the annotations
 
-2. Run bot.js by typing **node bot.js**
+2. Run **npm install** in the directory you put your bot in
 
-3. There you go, every day at 7:00AM local time bot will download the graph, cut it up and keep both copies in separate folders named accordingly by the date. I highly advise to change the time to equivalent of 5:00AM UTC in your timezone since bot works on your local timezone. To do so, change *.hour = [7];* (7 = 7AM local) values in bot.js.
+3. Run bot.js by typing **node bot.js**
+
+4. There you go, every day at the time set in bot.js (it's important to set it up as described in the 1st step!) it will download the graph, cut it up and keep both copies in separate folders named accordingly by the date. 
 
 *you have to have node installed on your machine*
