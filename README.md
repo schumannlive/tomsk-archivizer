@@ -4,7 +4,7 @@ Little app to keep a clean archive of Tomsk graphs - both whole graphs as well a
 
 ## How to make it work:
 
-1. Open up config.json in your editor of choice and adjust schedule time as described in the annotation.
+1. Open up config.json in your editor of choice and adjust "hour" value so it matches 8am Central European Summer Time (0-23)
 
 2. Run **npm install** in the directory you put your bot in
 
